@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+build/
+
+# Генерируемые артефакты: модель, БД, тяжёлые html-отчёты (собираются в CI)
+artifacts/
+reports/*.html
+reports/report_current.html

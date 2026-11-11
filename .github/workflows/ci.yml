@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt pytest httpx ruff
+      - run: ruff check src tests
+      - run: pytest -q
+
+  monitoring-report:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Train and run drift experiment
+        env:
+          PYTHONPATH: src
+        run: |
+          python -m churn_monitoring.train
+          python -m churn_monitoring.monitor experiment
+      - uses: actions/upload-artifact@v4
+        with:
+          name: drift-reports
+          path: reports/
+
+  docker:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t churn-monitoring .
+      - name: Smoke test container
+        run: |
+          docker run -d -p 8000:8000 --name api churn-monitoring
+          for i in $(seq 1 20); do curl -sf localhost:8000/health && break; sleep 1; done
+          curl -sf -X POST localhost:8000/predict -H 'Content-Type: application/json' \
+            -d '{"age":25,"tenure":3,"balance":1000,"num_products":1,"is_active":0,"salary":30000}'

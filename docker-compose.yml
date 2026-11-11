@@ -1,0 +1,23 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      PREDICTIONS_DB: /data/predictions.db
+    volumes:
+      - predictions:/data
+
+  # Разовый запуск: docker compose run --rm monitor
+  monitor:
+    build: .
+    profiles: ["tools"]
+    user: root  # чтобы писать отчёты в примонтированную папку хоста
+    command: ["python", "-m", "churn_monitoring.monitor", "experiment"]
+    environment:
+      REPORTS_DIR: /reports
+    volumes:
+      - ./reports:/reports
+
+volumes:
+  predictions:

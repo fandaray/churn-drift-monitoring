@@ -1,0 +1,10 @@
+# Evidently 0.7.21 не совместим с pandas >= 3.1 — версия pandas закреплена
+evidently==0.7.21
+pandas==3.0.3
+numpy==2.5.4
+scikit-learn==1.9.1
+joblib==1.6.0
+matplotlib==3.11.2
+fastapi==0.162.4
+pydantic==2.14.3
+uvicorn==0.54.0

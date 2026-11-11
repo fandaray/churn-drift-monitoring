@@ -1,0 +1,172 @@
+{
+  "normal": {
+    "drifted_columns": 0,
+    "drift_share": 0.0,
+    "columns": {
+      "age": 0.1896,
+      "tenure": 0.2663,
+      "balance": 0.1443,
+      "num_products": 0.8073,
+      "is_active": 0.6534,
+      "salary": 0.1896,
+      "target": 0.88,
+      "prediction": 0.1699
+    },
+    "dataset_drift": false,
+    "accuracy": 0.705,
+    "f1_churn": 0.438,
+    "f1_macro": 0.619,
+    "recall_stayed": 0.742,
+    "real_churn_rate": 0.205,
+    "predicted_churn_rate": 0.32
+  },
+  "drifted": {
+    "drifted_columns": 7,
+    "drift_share": 0.875,
+    "columns": {
+      "age": 0.0,
+      "tenure": 0.0,
+      "balance": 0.0,
+      "num_products": 0.0,
+      "is_active": 0.0,
+      "salary": 0.0,
+      "target": 0.0,
+      "prediction": 0.8651
+    },
+    "dataset_drift": true,
+    "accuracy": 0.388,
+    "f1_churn": 0.505,
+    "f1_macro": 0.351,
+    "recall_stayed": 0.588,
+    "real_churn_rate": 0.873,
+    "predicted_churn_rate": 0.365
+  },
+  "sensitivity": [
+    {
+      "intensity": 0.0,
+      "drift_share": 0.0,
+      "accuracy": 0.74,
+      "f1_churn": 0.49,
+      "f1_macro": 0.658,
+      "recall_stayed": 0.759,
+      "real_churn_rate": 0.19,
+      "predicted_churn_rate": 0.32
+    },
+    {
+      "intensity": 0.1,
+      "drift_share": 0.25,
+      "accuracy": 0.598,
+      "f1_churn": 0.353,
+      "f1_macro": 0.531,
+      "recall_stayed": 0.654,
+      "real_churn_rate": 0.255,
+      "predicted_churn_rate": 0.367
+    },
+    {
+      "intensity": 0.2,
+      "drift_share": 1.0,
+      "accuracy": 0.613,
+      "f1_churn": 0.537,
+      "f1_macro": 0.602,
+      "recall_stayed": 0.622,
+      "real_churn_rate": 0.378,
+      "predicted_churn_rate": 0.46
+    },
+    {
+      "intensity": 0.3,
+      "drift_share": 1.0,
+      "accuracy": 0.573,
+      "f1_churn": 0.544,
+      "f1_macro": 0.571,
+      "recall_stayed": 0.547,
+      "real_churn_rate": 0.42,
+      "predicted_churn_rate": 0.517
+    },
+    {
+      "intensity": 0.4,
+      "drift_share": 1.0,
+      "accuracy": 0.568,
+      "f1_churn": 0.608,
+      "f1_macro": 0.563,
+      "recall_stayed": 0.487,
+      "real_churn_rate": 0.522,
+      "predicted_churn_rate": 0.58
+    },
+    {
+      "intensity": 0.5,
+      "drift_share": 1.0,
+      "accuracy": 0.542,
+      "f1_churn": 0.592,
+      "f1_macro": 0.536,
+      "recall_stayed": 0.469,
+      "real_churn_rate": 0.552,
+      "predicted_churn_rate": 0.57
+    },
+    {
+      "intensity": 0.6,
+      "drift_share": 1.0,
+      "accuracy": 0.575,
+      "f1_churn": 0.677,
+      "f1_macro": 0.528,
+      "recall_stayed": 0.374,
+      "real_churn_rate": 0.652,
+      "predicted_churn_rate": 0.662
+    },
+    {
+      "intensity": 0.7,
+      "drift_share": 1.0,
+      "accuracy": 0.54,
+      "f1_churn": 0.646,
+      "f1_macro": 0.495,
+      "recall_stayed": 0.39,
+      "real_churn_rate": 0.693,
+      "predicted_churn_rate": 0.608
+    },
+    {
+      "intensity": 0.8,
+      "drift_share": 1.0,
+      "accuracy": 0.593,
+      "f1_churn": 0.701,
+      "f1_macro": 0.531,
+      "recall_stayed": 0.455,
+      "real_churn_rate": 0.748,
+      "predicted_churn_rate": 0.615
+    },
+    {
+      "intensity": 0.9,
+      "drift_share": 1.0,
+      "accuracy": 0.492,
+      "f1_churn": 0.628,
+      "f1_macro": 0.416,
+      "recall_stayed": 0.413,
+      "real_churn_rate": 0.843,
+      "predicted_churn_rate": 0.52
+    },
+    {
+      "intensity": 1.0,
+      "drift_share": 0.875,
+      "accuracy": 0.417,
+      "f1_churn": 0.535,
+      "f1_macro": 0.378,
+      "recall_stayed": 0.55,
+      "real_churn_rate": 0.85,
+      "predicted_churn_rate": 0.403
+    }
+  ],
+  "detection_threshold_intensity": 0.2,
+  "seed_study": {
+    "runs": 20,
+    "accuracy_up": 18,
+    "f1_macro_down": 20,
+    "median": {
+      "accuracy_normal": 0.692,
+      "accuracy_drifted": 0.835,
+      "f1_macro_normal": 0.595,
+      "f1_macro_drifted": 0.459,
+      "recall_stayed_normal": 0.738,
+      "recall_stayed_drifted": 0.0,
+      "predicted_churn_rate_normal": 0.309,
+      "predicted_churn_rate_drifted": 1.0
+    }
+  }
+}
